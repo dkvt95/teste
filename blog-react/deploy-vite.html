@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Publique o seu projeto Vite e disponibilize-o de forma fácil e rápida no GitHub Pages." />
+  <meta name="keywords" content="deploy vite, react, github pages" />
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="José Leonardo" />
+  <title>José Leonardo | Deploy vite</title>
+
+  <!-- Facebook, Whatsapp e Linkedin - Meta Tags Open Graph -->
+  <meta property="og:url" content="https://leodkvt.com.br/blog-react/deploy-vite">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="José Leonardo | Deploy Vite">
+  <meta property="og:description"
+    content="Publique o seu projeto Vite e disponibilize-o de forma fácil e rápida no GitHub Pages.">
+  <meta property="og:image" content="https://i.imgur.com/ITrslDG.jpg">
+
+  <!-- Twitter Meta Tags Open Graph -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="José Leonardo | Deploy Vite">
+  <meta name="twitter:description"
+    content="Publique o seu projeto Vite e disponibilize-o de forma fácil e rápida no GitHub Pages.">
+  <meta name="twitter:image" content="https://i.imgur.com/ITrslDG.jpg">
+
+  <!-- Ícone do site -->
+  <link rel="icon" href="../img/favicon-logo.ico" type="image/x-icon">
+
+  <!-- Folha de estilo Bootstrap 4.6 -->
+  <link rel="stylesheet" href="../css/bootstrap.css">
+
+  <!-- Meus estilos personalizados -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<!-- Este script carrega o Google Tag Manager, que é uma plataforma que permite gerenciar tags de rastreamento de terceiros, como o Google Analytics. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X537NV62CX"></script>
+
+<!-- Este script é um código de rastreamento do Google Analytics. Serve para coletar informações sobre os visitantes de um site, as páginas que eles visitam, o tempo que passam no site e as ações que realizam. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-X537NV62CX');
+</script>
+
+<body class="bg-black">
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-smoky py-3 box-shadow">
+      <a class="navbar-brand" href="../">
+        <img src="../img/leo-logo.svg" style="width: 195px; height: 50px" alt="José Leonardo Dev Front-end" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Abrir Navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../portfolio">Portfólio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="../blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../contato">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="container-lg text-center text-white px-1">
+    <h1 class="display-3 degrade1 mt-5 pb-1">Publique seu projeto React no Github Pages utilizando Vite</h1>
+    <p class="font-italic text-orange mb-5">Criado em 04 de Maio de 2023</p>
+    <h2 class="degrade mt-4 pb-2">Iniciando o deploy com o github pages</h2>
+    <p>No arquivo “<strong class="text-info">vite.config.js</strong>” adicionar o comando “<strong
+        class="text-info">base</strong>” de acordo com o nome do seu <strong>repositório</strong> do github por exemplo:
+      “<strong class="text-info">https://github.com/LeoDKVT/gpt-page</strong>”.</p>
+    <div class="caixa">
+      <pre class="sombra">
+          <code class="user-select-all">  <span class="text-violet">import</span> { <span class="text-primary">defineConfig</span> } <span class="text-violet">from</span> <span class="text-orange">"vite"</span>;
+            <span class="text-violet">import</span> <span class="text-primary">react</span> <span class="text-violet">from</span> <span class="text-orange">"@vitejs/plugin-react"</span>;
+
+            <span class="text-success">// https://vitejs.dev/config/</span>
+            <span class="text-violet">export default</span> defineConfig({
+              <span class="text-primary">plugins:</span> [react()],
+              <span class="text-primary">base:</span> <span class="text-orange">"/gpt-page/"</span>,
+            });</code>
+        </pre>
+    </div>
+    <p>Feito isso, basta subir seu projeto para o github caso você tenha feito localmente.</p>
+    <p>No seu repositório do github, iremos em <strong class="text-info">settings</strong> → <strong
+        class="text-info">pages</strong> → “<strong class="text-info">Build and deployment</strong>” trocar para
+      “<strong class="text-info">github actions</strong>” e na pasta “<strong class="text-info">Static HTML</strong>”
+      colar o arquivo “<strong class="text-info">yml</strong>” da documentação Vite.</p>
+    <p>Segue o link da documentação contendo o código yml: <a href="https://vitejs.dev/guide/static-deploy.html"
+        rel="nofollow" target="_blank">https://vitejs.dev/guide/static-deploy.html</a> </p>
+    <p>Código yml:</p>
+    <div class="caixa">
+      <pre class="sombra" style="height: 240px;">
+          <code class="user-select-all" ># Simple workflow for deploying static content to GitHub Pages
+          name: Deploy static content to Pages
+
+          on:
+            # Runs on pushes targeting the default branch
+            push:
+              branches: ['main']
+
+            # Allows you to run this workflow manually from the Actions tab
+            workflow_dispatch:
+
+          # Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
+          permissions:
+            contents: read
+            pages: write
+            id-token: write
+
+          # Allow one concurrent deployment
+          concurrency:
+            group: 'pages'
+            cancel-in-progress: true
+
+          jobs:
+            # Single deploy job since we're just deploying
+            deploy:
+              environment:
+                name: github-pages
+                url: ${{ steps.deployment.outputs.page_url }}
+              runs-on: ubuntu-latest
+              steps:
+                - name: Checkout
+                  uses: actions/checkout@v3
+                - name: Set up Node
+                  uses: actions/setup-node@v3
+                  with:
+                    node-version: 18
+                    cache: 'npm'
+                - name: Install dependencies
+                  run: npm install
+                - name: Build
+                  run: npm run build
+                - name: Setup Pages
+                  uses: actions/configure-pages@v3
+                - name: Upload artifact
+                  uses: actions/upload-pages-artifact@v1
+                  with:
+                    # Upload dist repository
+                    path: './dist'
+                - name: Deploy to GitHub Pages
+                  id: deployment
+                  uses: actions/deploy-pages@v1
+          </code>
+        </pre>
+    </div>
+    <p>Após colar esse arquivo, basta clicar em “<strong class="text-info">commit changes</strong>”, será criado um
+      arquivo chamado "<strong class="text-info">static.yml</strong>" graças a ele será possivel gerar o link https do
+      github pages.</p>
+    <p>Para observar o layout das pastas no repositório, <a href="https://github.com/LeoDKVT/gpt-page" rel="nofollow"
+        target="_blank">clique aqui.</a></p>
+    <h3 class="degrade mt-4 pb-2">Qual vantagem tem fazendo o deploy dessa forma?</h3>
+    <p>Empregar este método de implantação específico apresenta uma variedade de vantagens importantes, já que ele é
+      muito simples e não requer a instalação de qualquer dependência como o "npm gh-pages".</p>
+    <h3 class="degrade mt-4 pb-2">Qual é o processo para atualizar o aplicativo depois de ser modificado?</h3>
+    <p>O Github atualizará automaticamente o projeto assim que ele for carregado. Para verificar o processo, acesse
+      "actions" e confira o commit e o status. Mas fique atento: se houver algum erro de código, o projeto não
+      funcionará.</p>
+    <h3 class="degrade mt-4 pb-2">Dica:</h3>
+    <p>Caso você seja novato em React e esteja buscando aprender a fazer o deploy, aconselho começar um projeto Vite do
+      zero e testá-lo para garantir que nenhum erro afete a estrutura básica. Assim, você poderá praticar de um jeito
+      seguro e eficaz.</p>
+    <h3 class="degrade mt-4 pb-2">Comandos úteis:</h3>
+    <p>Ao acionar este comando, um arquivo chamado "dist" será criado como a página estática.</p>
+    <div class="caixa">
+      <pre class="sombra">
+          <code class="user-select-all"><span class="text-info">npm</span> run build </code>
+        </pre>
+    </div>
+    <p>E para ver essa página estática basta rodar esse comando para ver esse projeto em produção:</p>
+    <div class="caixa">
+      <pre class="sombra">
+          <code class="user-select-all"><span class="text-info">npm</span> run preview </code>
+        </pre>
+    </div>
+
+    <div class="border border-roxo rounded bg-smoky my-4 py-4">
+      <p class="text-white pb-3">
+        Olá 👋 se você gostou deste blog, você pode compartilhá-lo em uma das seguintes plataformas:
+      </p>
+
+      <a class="text-decoration-none"
+        href="https://twitter.com/intent/tweet?url=https://leodkvt.com.br/blog-react/deploy-vite&text=Publique%20seu%20projeto%20React%20no%20Github%20Pages%20utilizando%20Vite:%20"
+        target="_blank"><img src="../img/rede-social/twitter.svg" class="img-fluid pr-3" data-toggle="tooltip"
+          data-placement="top" title="Compartilhe via Twitter" style="height: 40px" alt="logo twitter" />
+      </a>
+
+      <a class="text-decoration-none"
+        href="https://www.facebook.com/sharer/sharer.php?u=https://leodkvt.com.br/blog-react/deploy-vite"
+        target="_blank"><img src="../img/rede-social/facebook.svg" class="img-fluid pr-3" data-toggle="tooltip"
+          data-placement="top" title="Compartilhe via Facebook" style="height: 40px" alt="logo facebook" />
+      </a>
+
+      <a class="text-decoration-none"
+        href="https://www.linkedin.com/sharing/share-offsite/?url=https://leodkvt.com.br/blog-react/deploy-vite"
+        target="_blank"><img src="../img/rede-social/linkedin.svg" class="img-fluid pr-3" data-toggle="tooltip"
+          data-placement="top" title="Compartilhe via Linkedin" style="height: 40px" alt="logo linkedin" />
+      </a>
+
+      <a class="text-decoration-none"
+        href="https://api.whatsapp.com/send?text=Publique%20seu%20projeto%20React%20no%20Github%20Pages%20utilizando%20Vite:%20https://leodkvt.com.br/blog-react/deploy-vite"
+        target="_blank"><img src="../img/rede-social/whatsapp.svg" class="img-fluid pr-3" data-toggle="tooltip"
+          data-placement="top" title="Compartilhe via Whatsapp" style="height: 40px" alt="logo whatsapp" />
+      </a>
+
+      <a class="text-decoration-none"
+        href="https://mail.google.com/mail/u/0/?to=%7Bemail_address%7D&su=Publique+seu+um+projeto+React+no+Github+Pages+utilizando+Vite&body=Olá!%0A%0AEu+gostaria+de+compartilhar+este+blog:%0Ahttps://leodkvt.com.br/blog-react/deploy-vite%0A%0AAtenciosamente&bcc=%7Bemail_address%7D&cc=%7Bemail_address%7D&fs=1&tf=cm"
+        target="_blank"><img src="../img/rede-social/gmail.svg" class="img-fluid pr-3" data-toggle="tooltip"
+          data-placement="top" title="Compartilhe via Gmail" style="height: 40px" alt="logo gmail" />
+      </a>
+
+      <a class="text-decoration-none"
+        href="mailto:?subject=Publique%20seu%20projeto%20React%20no%20Github%20Pages%20utilizando%20Vite&body=Olá!%0A%0AEu%20gostaria%20de%20compartilhar%20este%20blog:%0Ahttps://leodkvt.com.br/blog-react/deploy-vite%0A%0AAtenciosamente"
+        target="_blank"><img src="../img/rede-social/outlook.svg" class="img-fluid" data-toggle="tooltip"
+          data-placement="top" title="Compartilhe via Email" style="height: 40px" alt="logo email" />
+      </a>
+    </div>
+
+    <a href="../blog">
+      <button type="button" class="btn text-white bg-roxo mb-4">Voltar ao Blog</button>
+    </a>
+  </section>
+
+  <footer class="container text-center">
+    <nav class="redesocial mb-3">
+      <a id="gmail" href="mailto:leodkvt@gmail.com" target="blank" aria-label="link do meu e-mail para contato">
+        <i class="fa-regular fa-envelope"></i>
+      </a>
+      <a id="linkedin" href="https://www.linkedin.com/in/jose-leonardo-dev-front-end/" rel="nofollow" target="blank"
+        aria-label="link do meu Linkedin ">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a id="github" href="https://github.com/LeoDKVT" target="blank" aria-label="link do meu Github">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a id="whatsapp" href="https://api.whatsapp.com/send?phone=5511939275748" target="blank"
+        aria-label="link do meu Whatsapp para contato">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+    </nav>
+  </footer>
+
+  <!-- Carrega a biblioteca Font Awesome de fontawesome.com para funcionar os icones de redes sociais -->
+  <script src="https://kit.fontawesome.com/abaa1d2832.js" crossorigin="anonymous"></script>
+
+  <!-- Carrega a biblioteca jQuery v3.5.1, minificada e compactada, do CDN do jQuery. -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+
+  <!-- Carrega o Popper.js v1.16.1, minificado e compactado, do CDN do Popper.js. -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+
+  <!-- Carrega o principal arquivo JavaScript do Bootstrap v4.6.2, minificado e compactado, do CDN do Bootstrap. -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+    integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
